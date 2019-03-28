@@ -50,25 +50,30 @@ function onYouTubeIframeAPIReady() {
 // var done2 = false;
 // var time_indvQ1;                                               //
 // var time_indvQ2;                                               //
+// var time_prTeach
 // var time_grpFrml;                                               //
 // var time_grpQ1;                                               //
 // var time_grpQ2;                                               //
 
 var time_indvQ1 = 93.5;
 var time_indvQ2 = 150.5;
+var time_prTeach = 190;
 var time_grpFrml = 206;
 var time_grpQ1 = 272.5;
 var time_grpQ2 = 311; 
+var len_video = 315;
 
 // if (studentId == 1){
 //     time_indvQ1 = 93.5;
 //     time_indvQ2 = 150.5;
+//     time_prTeach = 190; //
 //     time_grpFrml = 206;
 //     time_grpQ1 = 272.5;
 //     time_grpQ2 = 311;                                             
 // } else if (studentId == 2){
 //     time_indvQ1 = 92;
 //     time_indvQ2 = 152;
+//     time_prTeach = 190; //
 //     time_grpFrml = 210;
 //     time_grpQ1 = 275.5;
 //     time_grpQ2 = 314.5;   
@@ -79,22 +84,25 @@ function onPlayerReady(event) {
     setInterval(
         function() {
             if (event.target.getCurrentTime() >= time_indvQ1 && event.target.getCurrentTime() <= (time_indvQ1 + 0.5)) {
-                stopVideo("S" + studentId + "Q1");
+                stopVideo("#S" + studentId + "Q1");
                 // done1 = true;
                 // stopVideo(studentId,1);
             } else if (event.target.getCurrentTime() >= time_indvQ2 && event.target.getCurrentTime() <= (time_indvQ2 + 0.5)) {
                 // $("S" + studentId + "Q2").css("display", "block");
-                stopVideo("S" + studentId + "Q2");
+                stopVideo("#S" + studentId + "Q2");
                 // done2 = true;
                 // stopVideo(studentId,2);
             } else if (event.target.getCurrentTime() >= time_grpFrml && event.target.getCurrentTime() <= (time_grpFrml + 0.5)) {
-                stopVideo("groupQ0");
+                stopVideo("#finishPeerTeach");
+                // $("#groupQ0").css("display", "block");
+            } else if (event.target.getCurrentTime() >= time_grpFrml && event.target.getCurrentTime() <= (time_grpFrml + 0.5)) {
+                stopVideo("#groupQ0");
                 // $("#groupQ0").css("display", "block");
             } else if (event.target.getCurrentTime() >= time_grpQ1 && event.target.getCurrentTime() <= (time_grpQ1 + 0.5)) {
-                stopVideo("groupQ1");
+                stopVideo("#groupQ1");
                 // $("#groupQ1").css("display", "block");
             } else if (event.target.getCurrentTime() >= time_grpQ2 && event.target.getCurrentTime() <= (time_grpQ2 + 0.5)) {
-                stopVideo("groupQ2");
+                stopVideo("#groupQ2");
                 // $("#groupQ2").css("display", "block");
             } 
             if (event.target.getCurrentTime() >= len_video && event.target.getCurrentTime()) {
@@ -151,112 +159,118 @@ function continueVideo(div_name) {
 //     var answer = "A";
 //     handleAnswer("S1Q1", answer, fdbckA, fdbckB, fdbckC)
 
+var questionId = "";
 
 // Handle answers to individual questions
-// function handleS1Q1() {
-//     $("#btnS1Q1").html("<button onclick=\"continueVideo("S1Q1")\" class=\"button\">Continue</button>");
-//     var A = $("input[id=S1Q1A]:checked").val();
-//     var B = $("input[id=S1Q1B]:checked").val();
-//     var C = $("input[id=S1Q1C]:checked").val();
-//     var str = ""
-//     if (B) {
-//         str = "<p>Great job, you’re right! Do you understand why?</p>";
-//     } else if (A || C) {
-//         str = "<p>Oops, you missed it. Don’t worry, you’ll learn it in a bit.</p>";
-//     }
-//     $("#S1A1").html(str);
-// }
+function handleS1Q1() {
+    questionId = S1Q1;
+    $("#btnS1A1").html("<button onclick=\"continueVideo(questionId)\" class=\"button\">Continue</button>");
+    var A = $("input[id=S1Q1A]:checked").val();
+    var B = $("input[id=S1Q1B]:checked").val();
+    var C = $("input[id=S1Q1C]:checked").val();
+    var str = ""
+    if (B) {
+        str = "<p>Great job, you’re right! Do you understand why?</p>";
+    } else if (A || C) {
+        str = "<p>Oops, you missed it. Don’t worry, you’ll learn it in a bit.</p>";
+    }
+    $("#S1A1").html(str);
+}
 
-// function handleS1Q2() {
-//     $("#btnS1Q2").html("<button onclick=\"continueVideo("S1Q2")\" class=\"button\">Continue</button>");
-//     var A = $("input[id=S1Q2A]:checked").val();
-//     var B = $("input[id=S1Q2B]:checked").val();
-//     var C = $("input[id=S1Q2C]:checked").val();
-//     var str = ""
-//     if (B) {
-//         str = "<p>Correct, you got it!</p>";
-//     } else if (A || C) {
-//         str = "<p>That’s not right. Pay attention to the explanation and see why you got it wrong.</p>";
-//     }
-//     $("#S1A3").html(str);
-// }
+function handleS1Q2() {
+    questionId = S13;
+    $("#btnS1A1").html("<button onclick=\"continueVideo(questionId)\" class=\"button\">Continue</button>");
+    var A = $("input[id=S1Q2A]:checked").val();
+    var B = $("input[id=S1Q2B]:checked").val();
+    var C = $("input[id=S1Q2C]:checked").val();
+    var str = ""
+    if (B) {
+        str = "<p>Correct, you got it!</p>";
+    } else if (A || C) {
+        str = "<p>That’s not right. Pay attention to the explanation and see why you got it wrong.</p>";
+    }
+    $("#S1A2").html(str);
+}
 
-// function handleS2Q1() {
-//     $("#btnS2Q1").html("<button onclick=\"continueVideo("S2Q1")\" class=\"button\">Continue</button>");
-//     var A = $("input[id=S2Q1A]:checked").val();
-//     var B = $("input[id=S2Q1B]:checked").val();
-//     var C = $("input[id=S2Q1C]:checked").val();
-//     var str = ""
-//     if (B) {
-//         str = "<p>Great job, you’re right! Do you understand why?</p>";
-//     } else if (A || C) {
-//         str = "<p>Oops, you missed it. Don’t worry, you’ll learn it in a bit.</p>";
-//     }
-//     $("#S2A1").html(str);
-// }
+function handleS2Q1() {
+    questionId = S2Q1;
+    $("#btnS2A1").html("<button onclick=\"continueVideo(questionId)\" class=\"button\">Continue</button>");
+    var A = $("input[id=S2Q1A]:checked").val();
+    var B = $("input[id=S2Q1B]:checked").val();
+    var C = $("input[id=S2Q1C]:checked").val();
+    var str = ""
+    if (B) {
+        str = "<p>Great job, you’re right! Do you understand why?</p>";
+    } else if (A || C) {
+        str = "<p>Oops, you missed it. Don’t worry, you’ll learn it in a bit.</p>";
+    }
+    $("#S2A1").html(str);
+}
 
-// function handleS2Q2() {
-//     $("#btnS2Q2").html("<button onclick=\"continueVideo("S2Q2")\" class=\"button\">Continue</button>");
-//     var A = $("input[id=S2Q2A]:checked").val();
-//     var B = $("input[id=S2Q2B]:checked").val();
-//     var C = $("input[id=S2Q2C]:checked").val();
-//     var str = ""
-//     if (A) {
-//         str = "<p>Correct, you got it!</p>";
-//     } else if (A || C) {
-//         str = "<p>That’s not right. Pay attention to the explanation and see why you got it wrong.</p>";
-//     }
-//     $("#S2A2").html(str);
-// }
+function handleS1Q2() {
+    questionId = S2Q2;
+    $("#btnS2A2").html("<button onclick=\"continueVideo(questionId)\" class=\"button\">Continue</button>");
+    var A = $("input[id=S2Q2A]:checked").val();
+    var B = $("input[id=S2Q2B]:checked").val();
+    var C = $("input[id=S2Q2C]:checked").val();
+    var str = ""
+    if (A) {
+        str = "<p>Correct, you got it!</p>";
+    } else if (B || C) {
+        str = "<p>That’s not right. Pay attention to the explanation and see why you got it wrong.</p>";
+    }
+    $("#S2A2").html(str);
+}
 
-// function continueVideo(div_name) {
-//     $(div_name).css("display", "none");
-//     player.playVideo();
-// }
+// Continue watching the video after finish peer teach
+function finishPeerTeach() {
+    continueVideo("#finishPeerTeach");
+}
 
+// Handle group questions
+function handleGroupQ0() {
+    questionId = groupQ0;
+    $("#btnGrpQ0").html("<button onclick=\"continueVideo(questionId)\" class=\"button\">Continue</button>");
+    var A = $("input[id=GrQ0A]:checked").val();
+    var B = $("input[id=GrQ0B]:checked").val();
+    var C = $("input[id=GrQ0C]:checked").val();
+    var D = $("input[id=GrQ0D]:checked").val();
+    var str = ""
+    if (C) {
+        str = "<p>Correct, you got it!</p>";
+    } else if (A || B || D) {
+        str = "<p>That’s not right. Pay attention to the explanation and see why you got it wrong.</p>";
+    }
+    $("#groupQ0").html(str);
+}
 
-// Original
-// function handleQ1() {
-//     $("#btnq1").html("<button onclick=\"continueVideo(1)\" class=\"button\">Continue</button>");
-//     var A = $("input[id=A1]:checked").val();
-//     var B = $("input[id=B1]:checked").val();
-//     var C = $("input[id=C1]:checked").val();
-//     var D = $("input[id=D1]:checked").val();
-//     var str = ""
-//     if (A && C && !B && !D) {
-//         str = "<p>Great job! You got it right!</p>";
-//     } else if (!B && !D && (A || C)) {
-//         str = "<p>You are almost there, missing only one correct answer. The correct answer is A and C.</p>";
-//     } else if (A || C) {
-//         str = "<p>Your answers are partially correct. Nice try! The correct answer is A and C.</p>";
-//     } else {
-//         str = "<p>Oops, you didn’t catch the correct answers. Seems like you will learn a lot today! The correct answer is A and C.</p>";
-//     }
-//     $("#answer1").html(str);
-// }
+function handleGroupQ1() {
+    questionId = groupQ1;
+    $("#btnGrpQ1").html("<button onclick=\"continueVideo(questionId)\" class=\"button\">Continue</button>");
+    var A = $("input[id=GrQ1A]:checked").val();
+    var B = $("input[id=GrQ1B]:checked").val();
+    var C = $("input[id=GrQ1C]:checked").val();
+    var str = ""
+    if (C) {
+        str = "<p>Good job!</p>";
+    } else if (A || B || D) {
+        str = "<p>Oops! Seems like you didn’t fully understand the concept.</p>";
+    }
+    $("#groupQ1").html(str);
+}
 
-// function handleQ2() {
-//     $("#btnq2").html("<button onclick=\"continueVideo(2)\" class=\"button\">Continue</button>");
-//     var A = $("input[id=A2]:checked").val();
-//     var B = $("input[id=B2]:checked").val();
-//     var C = $("input[id=C2]:checked").val();
-//     var str = "";
-//     if (!A && !B && C) {
-//         str = "<p>Nice job! Your answer is correct. Let’s move on to see the explanation.</p>";
-//     } else {
-//         str = "<p>Oops, you didn’t catch the correct answer C. Let’s continue to see why we should choose C.</p>";
-//     }
-//     $("#answer2").html(str);
-// }
-
-// function continueVideo(id_num) {
-//     if (id_num == 1) {
-//         finish1 = true;
-//     } else if (id_num == 2) {
-//         finish2 = true;
-//     }
-//     var id = "#invent"+id_num;
-//     $(id).css("display", "none");
-//     player.playVideo();
-// }
+function handleGroupQ2() {
+    questionId = groupQ1;
+    $("#btnGrpQ2").html("<button onclick=\"continueVideo(questionId)\" class=\"button\">Continue</button>");
+    var A = $("input[id=GrQ2A]:checked").val();
+    var B = $("input[id=GrQ2B]:checked").val();
+    var C = $("input[id=GrQ2C]:checked").val();
+    var str = ""
+    if (C) {
+        str = "<p>Good job!</p>";
+    } else if (A || B || D) {
+        str = "<p>Oops! Seems like you didn’t fully understand the concept.</p>";
+    }
+    $("#groupQ2").html(str);
+}
 
