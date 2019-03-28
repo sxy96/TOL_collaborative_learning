@@ -1,35 +1,31 @@
-var tag2 = document.createElement('script');
-tag2.src = "https://code.jquery.com/jquery-3.3.1.js";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag2, firstScriptTag); 
-
 // Direct students to different videos based on their role in a pair
 var studentId;
 var videoURL = "";
 var videoId = "";
 function makeStudentPairs() {
-    $("#btnq0").html("<button onclick=\"downloadAPI()\" class=\"button\">Continue</button>");
+    // $("#btnq0").html("<button onclick=\"loadVideo(videoId)\" class=\"button\">Submit</button>");
     var s1 = $("input[id=Q0S1]:checked").val();
     var s2 = $("input[id=Q0S2]:checked").val();
     if (s1) {
         studentId = 1;
-        videoURL = "https://youtu.be/Rv87bbUwYJk";                                          //NEEDS URL
-        videoId  = "Rv87bbUwYJk";                                              //NEEDS id
+        videoURL = "https://youtu.be/Rv87bbUwYJk";
+        videoId  = "Rv87bbUwYJk";
     } else if (s2){
         studentId = 2;
-        videoURL = "https://youtu.be/1aJNxWY9kzs";                                          //NEEDS URL
-        videoId  = "1aJNxWY9kzs";                                              //NEEDS id        
+        videoURL = "https://youtu.be/1aJNxWY9kzs";
+        videoId  = "1aJNxWY9kzs";
     }
+    player.loadVideoById(videoId);
 }
 
 // 2. This code loads the IFrame Player API code asynchronously.
-function downloadAPI(){
-    var tag1 = document.createElement('script');
-    tag1.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag2, firstScriptTag);    
-}
-
+var tag1 = document.createElement('script');
+tag1.src = "https://www.youtube.com/iframe_api";
+var tag2 = document.createElement('script');
+tag2.src = "https://code.jquery.com/jquery-3.3.1.js";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag1, firstScriptTag);
+firstScriptTag.parentNode.insertBefore(tag2, firstScriptTag);
 
 // 3. This function creates an <iframe> (and YouTube player)
 //    after the API code downloads.
@@ -37,8 +33,7 @@ var player;
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '720',
-        width: '1080',
-        videoId: videoId,                                     //
+        width: '1080',                                  //
         playerVars: {'autoplay': 0, 'wmode': 'transparent', 'fs': 0, 'controls':1, 'rel':0, 'modestbranding':1, 'showinfo':0},
         events: {
             'onReady': onPlayerReady,
@@ -46,6 +41,7 @@ function onYouTubeIframeAPIReady() {
         }
     });
 }
+
 
 // 4. The API calls this function when the player's state changes.
 //    The function indicates that when playing a video (state=1),
@@ -83,19 +79,23 @@ function onPlayerReady(event) {
     setInterval(
         function() {
             if (event.target.getCurrentTime() >= time_indvQ1 && event.target.getCurrentTime() <= (time_indvQ1 + 0.5)) {
-                $("S" + studentId + "Q1").css("display", "block");
+                stopVideo("S" + studentId + "Q1");
                 // done1 = true;
                 // stopVideo(studentId,1);
             } else if (event.target.getCurrentTime() >= time_indvQ2 && event.target.getCurrentTime() <= (time_indvQ2 + 0.5)) {
-                $("S" + studentId + "Q2").css("display", "block");
+                // $("S" + studentId + "Q2").css("display", "block");
+                stopVideo("S" + studentId + "Q2");
                 // done2 = true;
                 // stopVideo(studentId,2);
             } else if (event.target.getCurrentTime() >= time_grpFrml && event.target.getCurrentTime() <= (time_grpFrml + 0.5)) {
-                $("#groupQ0").css("display", "block");
+                stopVideo("groupQ0");
+                // $("#groupQ0").css("display", "block");
             } else if (event.target.getCurrentTime() >= time_grpQ1 && event.target.getCurrentTime() <= (time_grpQ1 + 0.5)) {
-                $("#groupQ1").css("display", "block");
+                stopVideo("groupQ1");
+                // $("#groupQ1").css("display", "block");
             } else if (event.target.getCurrentTime() >= time_grpQ2 && event.target.getCurrentTime() <= (time_grpQ2 + 0.5)) {
-                $("#groupQ2").css("display", "block");
+                stopVideo("groupQ2");
+                // $("#groupQ2").css("display", "block");
             } 
             if (event.target.getCurrentTime() >= len_video && event.target.getCurrentTime()) {
                 event.target.pauseVideo();
@@ -110,27 +110,28 @@ function onPlayerReady(event) {
 //    The function indicates that when playing a video (state=1),
 //    the player should play for six seconds and then stop.
 function onPlayerStateChange(event) {
-    // if (event.data == YT.PlayerState.PLAYING && !done) {
-    //   setTimeout(stopVideo, 6000);
-    //   done = true;
-    // }
     if (event.data == YT.PlayerState.PLAYING) {
+        $("#makePairs").css("display", "none");
         $("#S1Q1").css("display", "none");
         $("#S1Q2").css("display", "none");
         $("#S2Q1").css("display", "none");
         $("#S2Q2").css("display", "none");
+        $("#finishPeerTeach").css("display", "none");
         $("#groupQ0").css("display", "none");
         $("#groupQ1").css("display", "none");
         $("#groupQ2").css("display", "none");
     }
 }
 
+function stopVideo(div_name) {
+    $(div_name).css("display", "block");
+    player.pauseVideo();
+} 
 
-// function stopVideo(studentId, questionId) {
-//     var div_name = "S" + studentId + "Q" + questionId;
-//     $(div_name).css("display", "block");
-//     player.pauseVideo();
-// } 
+function continueVideo(div_name) {
+    $(div_name).css("display", "none");
+    player.playVideo();
+}
 
 // function handleAnswer(questionId, correctAnswer, fdbckA, fdbckB, fdbckC) {
 //     $("#btnS1Q1").html("<button onclick=\"continueVideo("S1Q1")\" class=\"button\">Continue</button>");

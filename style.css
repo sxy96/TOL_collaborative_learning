@@ -31,14 +31,26 @@ section {
     position: absolute;
 /*    width: 100%;*/
     z-index: -10;
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 #title{
     margin: 30px 0 20px 0;
 }
 
-#S1Q1, #S1Q2, #S2Q1, #S2Q2 {
+#makePairs{
+    display: block;
+    position: absolute;
+    background: #ffffff;
+    width: 1000px;
+    height: 520px;
+    margin-top: 10px;
+    padding: 80px 80px 120px 80px;
+}
+
+#finishPeerTeach,
+#S1Q1, #S1Q2, #S2Q1, #S2Q2, 
+#groupQ0, #groupQ1, #groupQ2 {
     display: none;
     position: absolute;
     background: #f4f4f4;
@@ -48,27 +60,42 @@ section {
     padding: 80px 80px 120px 80px;
 }
 
+#makePairs h3, 
+#finishPeerTeach h3,
 #S1Q1 h3, 
 #S1Q2 h3, 
 #S2Q1 h3, 
-#S2Q2 h3{
+#S2Q2 h3,
+#groupQ0 h3, 
+#groupQ1 h3, 
+#groupQ2 h3 {
     padding:20px;
     font-size:1.6rem;
     line-height: 1.4em;
     font-weight:400;
 }
 
+#makePairs input, 
+#finishPeerTeach input, 
 #S1Q1 input,
 #S1Q2 input,
 #S2Q1 input,
-#S2Q2 input{
+#S2Q2 input,
+#groupQ0 input, 
+#groupQ1 input, 
+#groupQ2 input {
     font-size: 5rem;
 }
 
+#makePairs em, 
+#finishPeerTeach em, 
 #S1Q1 em,
 #S1Q2 em,
 #S2Q1 em,
-#S2Q2 em{
+#S2Q2 em,
+#groupQ0 em, 
+#groupQ1 em, 
+#groupQ2 em{
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 2em;
@@ -81,7 +108,11 @@ section {
     margin-bottom:40px;
 }*/
 
-#answer1, #answer2{
+#S1Q1A, #S1Q2A,
+#S2Q1A, #S2Q2A,
+#groupQ0A, #groupQ1A,
+#groupQ2A
+{
     /*display:none;*/
     /*position:relative;*/
     margin-top: 130px;
@@ -92,8 +123,13 @@ section {
     width: 400px;
 }
 
-#answer1 p,
-#answer2 p{
+#S1Q1A p, 
+#S1Q2A p,
+#S2Q1A p, 
+#S2Q2A p, 
+#groupQ0A p, 
+#groupQ1A p,
+#groupQ2A p{
     padding:20px;
     font-weight:300;
     font-size:1.1rem;
@@ -112,10 +148,6 @@ section {
     text-decoration: none;
     color: #00A2FF;
     box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-#btnq3 button{
-    margin-top:0;
 }
 
 .button:hover{
