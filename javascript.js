@@ -234,11 +234,6 @@ function finishPeerTeach() {
     continueVideo("#finishPeerTeach");
 }
 
-                <input id="GrQ0A" type="radio" name="GrA0" value=true> <em>A. m1m2=d1d2</em> <br>
-                <input id="GrQ0B" type="radio" name="GrA0" value=true> <em>B. m1d2=m2d1</em> <br>
-                <input id="GrQ0C" type="radio" name="GrA0" value=true> <em>C. m1d1=m2d2</em> <br>
-                <input id="GrQ0D" type="radio" name="GrA0" value=true> <em>D. m1/d1=m2/d2</em> <br>
-
 
 // Handle group questions
 function handleGrQ0() {
