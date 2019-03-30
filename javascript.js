@@ -234,7 +234,6 @@ function finishPeerTeach() {
     continueVideo("#finishPeerTeach");
 }
 
-
 // Handle group questions
 function handleGrQ0() {
     questionId = GrQ0;
