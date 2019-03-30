@@ -16,6 +16,7 @@ function makeStudentPairs() {
         videoId  = "1aJNxWY9kzs";
     }
     player.loadVideoById(videoId);
+    decideIntervalTime(studentId);
 }
 
 // 2. This code loads the IFrame Player API code asynchronously.
@@ -51,59 +52,64 @@ function onYouTubeIframeAPIReady() {
 // var time_indvQ1;                                               //
 // var time_indvQ2;                                               //
 // var time_prTeach
-// var time_grpFrml;                                               //
+// var time_grpQ0;                                               //
 // var time_grpQ1;                                               //
 // var time_grpQ2;                                               //
 
-var time_indvQ1 = 93.5;
-var time_indvQ2 = 150.5;
-var time_prTeach = 190;
-var time_grpFrml = 206;
-var time_grpQ1 = 272.5;
-var time_grpQ2 = 311; 
-var len_video = 315;
+var time_indvQ1;
+var time_indvQ2;
+var time_prTch;
+var time_grpQ0;
+var time_grpQ1;
+var time_grpQ2;
+var len_video;
 
-// if (studentId == 1){
-//     time_indvQ1 = 93.5;
-//     time_indvQ2 = 150.5;
-//     time_prTeach = 190; //
-//     time_grpFrml = 206;
-//     time_grpQ1 = 272.5;
-//     time_grpQ2 = 311;                                             
-// } else if (studentId == 2){
-//     time_indvQ1 = 92;
-//     time_indvQ2 = 152;
-//     time_prTeach = 190; //
-//     time_grpFrml = 210;
-//     time_grpQ1 = 275.5;
-//     time_grpQ2 = 314.5;   
-// }
+function decideIntervalTime(studentId){
+    if (studentId == 1){
+        time_indvQ1 = 93.5;     //1:33
+        time_indvQ2 = 150.5;    //2:30
+        time_prTch = 178;       //2:58
+        time_grpQ0 = 206;       //3:26
+        time_grpQ1 = 272.5;     //4:32
+        time_grpQ2 = 311;       //5:11
+        len_video = 362;        //6:02                                            
+    } else if (studentId == 2){
+        time_indvQ1 = 92;       //1:32
+        time_indvQ2 = 152;      //2:32
+        time_prTch = 180;       //3:00
+        time_grpQ0 = 210;       //3:30
+        time_grpQ1 = 275.5;     //4:35
+        time_grpQ2 = 314.5;     //5:14
+        len_video = 366;        //6:06
+    }
+}
 
+
+var done1,done2,done3,done4,done5,done6=false;
 function onPlayerReady(event) {
     event.target.playVideo();
     setInterval(
         function() {
-            if (event.target.getCurrentTime() >= time_indvQ1 && event.target.getCurrentTime() <= (time_indvQ1 + 0.5)) {
+            if (event.target.getCurrentTime() >= time_indvQ1 && !done1) {
                 stopVideo("#S" + studentId + "Q1");
-                // done1 = true;
+                done1 = true;
                 // stopVideo(studentId,1);
-            } else if (event.target.getCurrentTime() >= time_indvQ2 && event.target.getCurrentTime() <= (time_indvQ2 + 0.5)) {
+            } else if (event.target.getCurrentTime() >= time_indvQ2 && !done2) {
                 // $("S" + studentId + "Q2").css("display", "block");
                 stopVideo("#S" + studentId + "Q2");
-                // done2 = true;
-                // stopVideo(studentId,2);
-            } else if (event.target.getCurrentTime() >= time_grpFrml && event.target.getCurrentTime() <= (time_grpFrml + 0.5)) {
+                done2 = true;
+            } else if (event.target.getCurrentTime() >= time_prTch && !done3) {
                 stopVideo("#finishPeerTeach");
-                // $("#groupQ0").css("display", "block");
-            } else if (event.target.getCurrentTime() >= time_grpFrml && event.target.getCurrentTime() <= (time_grpFrml + 0.5)) {
-                stopVideo("#groupQ0");
-                // $("#groupQ0").css("display", "block");
-            } else if (event.target.getCurrentTime() >= time_grpQ1 && event.target.getCurrentTime() <= (time_grpQ1 + 0.5)) {
-                stopVideo("#groupQ1");
-                // $("#groupQ1").css("display", "block");
-            } else if (event.target.getCurrentTime() >= time_grpQ2 && event.target.getCurrentTime() <= (time_grpQ2 + 0.5)) {
-                stopVideo("#groupQ2");
-                // $("#groupQ2").css("display", "block");
+                done3 = true;
+            } else if (event.target.getCurrentTime() >= time_grpQ0 && !done4) {
+                stopVideo("#GrQ0");
+                done4 = true;
+            } else if (event.target.getCurrentTime() >= time_grpQ1 && !done5) {
+                stopVideo("#GrQ1");
+                done5 = true;
+            } else if (event.target.getCurrentTime() >= time_grpQ2 && !done6) {
+                stopVideo("#GrQ2");
+                done6 = true;
             } 
             if (event.target.getCurrentTime() >= len_video && event.target.getCurrentTime()) {
                 event.target.pauseVideo();
@@ -113,6 +119,7 @@ function onPlayerReady(event) {
         500
     );
 }
+
 
 // 5. The API calls this function when the player's state changes.
 //    The function indicates that when playing a video (state=1),
@@ -125,9 +132,9 @@ function onPlayerStateChange(event) {
         $("#S2Q1").css("display", "none");
         $("#S2Q2").css("display", "none");
         $("#finishPeerTeach").css("display", "none");
-        $("#groupQ0").css("display", "none");
-        $("#groupQ1").css("display", "none");
-        $("#groupQ2").css("display", "none");
+        $("#GrQ0").css("display", "none");
+        $("#GrQ1").css("display", "none");
+        $("#GrQ2").css("display", "none");
     }
 }
 
@@ -174,12 +181,12 @@ function handleS1Q1() {
     } else if (A || C) {
         str = "<p>Oops, you missed it. Don’t worry, you’ll learn it in a bit.</p>";
     }
-    $("#S1A1").html(str);
+    $("#S1Q1Fdbck").html(str);
 }
 
 function handleS1Q2() {
-    questionId = S13;
-    $("#btnS1A1").html("<button onclick=\"continueVideo(questionId)\" class=\"button\">Continue</button>");
+    questionId = S1Q2;
+    $("#btnS1A2").html("<button onclick=\"continueVideo(questionId)\" class=\"button\">Continue</button>");
     var A = $("input[id=S1Q2A]:checked").val();
     var B = $("input[id=S1Q2B]:checked").val();
     var C = $("input[id=S1Q2C]:checked").val();
@@ -189,7 +196,7 @@ function handleS1Q2() {
     } else if (A || C) {
         str = "<p>That’s not right. Pay attention to the explanation and see why you got it wrong.</p>";
     }
-    $("#S1A2").html(str);
+    $("#S1Q2Fdbck").html(str);
 }
 
 function handleS2Q1() {
@@ -204,10 +211,10 @@ function handleS2Q1() {
     } else if (A || C) {
         str = "<p>Oops, you missed it. Don’t worry, you’ll learn it in a bit.</p>";
     }
-    $("#S2A1").html(str);
+    $("#S2Q1Fdbck").html(str);
 }
 
-function handleS1Q2() {
+function handleS2Q2() {
     questionId = S2Q2;
     $("#btnS2A2").html("<button onclick=\"continueVideo(questionId)\" class=\"button\">Continue</button>");
     var A = $("input[id=S2Q2A]:checked").val();
@@ -219,7 +226,7 @@ function handleS1Q2() {
     } else if (B || C) {
         str = "<p>That’s not right. Pay attention to the explanation and see why you got it wrong.</p>";
     }
-    $("#S2A2").html(str);
+    $("#S2Q2Fdbck").html(str);
 }
 
 // Continue watching the video after finish peer teach
@@ -228,9 +235,9 @@ function finishPeerTeach() {
 }
 
 // Handle group questions
-function handleGroupQ0() {
-    questionId = groupQ0;
-    $("#btnGrpQ0").html("<button onclick=\"continueVideo(questionId)\" class=\"button\">Continue</button>");
+function handleGrQ0() {
+    questionId = GrQ0;
+    $("#btnGrQ0").html("<button onclick=\"continueVideo(questionId)\" class=\"button\">Continue</button>");
     var A = $("input[id=GrQ0A]:checked").val();
     var B = $("input[id=GrQ0B]:checked").val();
     var C = $("input[id=GrQ0C]:checked").val();
@@ -241,12 +248,12 @@ function handleGroupQ0() {
     } else if (A || B || D) {
         str = "<p>That’s not right. Pay attention to the explanation and see why you got it wrong.</p>";
     }
-    $("#groupQ0").html(str);
+    $("#GrQ0Fdbck").html(str);
 }
 
-function handleGroupQ1() {
-    questionId = groupQ1;
-    $("#btnGrpQ1").html("<button onclick=\"continueVideo(questionId)\" class=\"button\">Continue</button>");
+function handleGrQ1() {
+    questionId = GrQ1;
+    $("#btnGrQ1").html("<button onclick=\"continueVideo(questionId)\" class=\"button\">Continue</button>");
     var A = $("input[id=GrQ1A]:checked").val();
     var B = $("input[id=GrQ1B]:checked").val();
     var C = $("input[id=GrQ1C]:checked").val();
@@ -256,12 +263,12 @@ function handleGroupQ1() {
     } else if (A || B || D) {
         str = "<p>Oops! Seems like you didn’t fully understand the concept.</p>";
     }
-    $("#groupQ1").html(str);
+    $("#GrQ1Fdbck").html(str);
 }
 
-function handleGroupQ2() {
-    questionId = groupQ1;
-    $("#btnGrpQ2").html("<button onclick=\"continueVideo(questionId)\" class=\"button\">Continue</button>");
+function handleGrQ2() {
+    questionId = GrQ2;
+    $("#btnGrQ2").html("<button onclick=\"continueVideo(questionId)\" class=\"button\">Continue</button>");
     var A = $("input[id=GrQ2A]:checked").val();
     var B = $("input[id=GrQ2B]:checked").val();
     var C = $("input[id=GrQ2C]:checked").val();
@@ -271,6 +278,5 @@ function handleGroupQ2() {
     } else if (A || B || D) {
         str = "<p>Oops! Seems like you didn’t fully understand the concept.</p>";
     }
-    $("#groupQ2").html(str);
+    $("#GrQ2Fdbck").html(str);
 }
-

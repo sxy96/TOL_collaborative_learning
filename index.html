@@ -27,8 +27,8 @@
         <div id="makePairs">
             <h3>Hi students, this learning unit is a collaborative learning. You need to find a partner to start. One of you should be Student A and the other is Student B. Then, choose your number below:</h3>
             <form class="option">
-                <input id="Q0S1" type="radio" name="quiz1" value=true> <em>Student A</em> <br>
-                <input id="Q0S2" type="radio" name="quiz1" value=true> <em>Student B</em> <br><br>
+                <input id="Q0S1" type="radio" name="peerRole" value=true> <em>Student A</em> <br>
+                <input id="Q0S2" type="radio" name="peerRole" value=true> <em>Student B</em> <br><br>
             </form>
 
             <div id="btnq0">
@@ -40,19 +40,19 @@
         <div id="S1Q1">
             <h3>How can you help Anna and Tom to make the seesaw move up and down?</h3>
             <form class="option">
-                <input id="S1Q1A" type="radio" name="S1Q1" value=true> <em>A. Let Tom hold a teddy bear.</em> <br>
-                <input id="S1Q1B" type="radio" name="S1Q1" value=true> <em>B. Let Anna hold a teddy bear.</em> <br>
-                <input id="S1Q1C" type="radio" name="S1Q1" value=true> <em>C. Place a teddy bear at the middle point of the seesaw</em> <br>
+                <input id="S1Q1A" type="radio" name="S1A1" value=true> <em>A. Let Tom hold a teddy bear.</em> <br>
+                <input id="S1Q1B" type="radio" name="S1A1" value=true> <em>B. Let Anna hold a teddy bear.</em> <br>
+                <input id="S1Q1C" type="radio" name="S1A1" value=true> <em>C. Place a teddy bear at the middle point of the seesaw</em> <br>
             </form>
 
-            <div id="S1Q1" class="picture">
+            <div id="S1Q1pic" class="picture">
                 <img src="images/S1Q1.jpeg" alt="picture1"/>
             </div>
 
             <div id="btnS1A1">
                 <button onclick="handleS1Q1()"button class="button">Submit</button>
             </div>
-            <div id="S1A1"></div>
+            <div id="S1Q1Fdbck" class="answer"></div>
         </div>
 
         <!-- // Student 1 - Individual Quiz  -->
@@ -64,14 +64,14 @@
                 <input id="S1Q2C" type="radio" name="S1Q2" value=true> <em>C. Point C</em> <br>
             </form>
 
-            <div id="pic2" class="picture">
+            <div id="S1Q2pic" class="picture">
                 <img src="images/S1Q2.jpeg" alt="picture2"/>
             </div>
 
             <div id="btnS1A2">
                 <button onclick="handleS1Q2()" class="button">Submit</button>
             </div>
-            <div id="S1A2" class="answer"></div>
+            <div id="S1Q2Fdbck" class="answer"></div>
         </div>
 
         <!-- // Student 2 - Exploration  -->
@@ -83,14 +83,14 @@
                 <input id="S2Q1C" type="radio" name="S2Q1" value=true> <em>C. Place a teddy bear at the middle point of the seesaw</em> <br>
             </form>
 
-            <div id="S2Q1" class="picture">
+            <div id="S2Q1pic" class="picture">
                 <img src="images/S2Q1.jpeg" alt="picture1"/>
             </div>
 
             <div id="btnS2A1">
                 <button onclick="handleS2Q1()" class="button">Submit</button>
             </div>
-            <div id="S2A1"></div>
+            <div id="S2Q1Fdbck" class="answer"></div>
         </div>
 
         <!-- // Student 2 - Individual Quiz  -->
@@ -102,107 +102,84 @@
                 <input id="S2Q2C" type="radio" name="S2Q2" value=true> <em>C. Point C</em> <br>
             </form>
 
-            <div id="pic2" class="picture">
+            <div id="S2Q2pic" class="picture">
                 <img src="images/S2Q2.jpeg" alt="picture2"/>
             </div>
 
             <div id="btnS2A2">
                 <button onclick="handleS2Q2()" class="button">Submit</button>
             </div>
-            <div id="S2A2" class="answer"></div>
+            <div id="S2Q2Fdbck" class="answer"></div>
         </div>
 
 
         <!-- // Continue to play the video when finish peer instruction -->
         <div id="finishPeerTeach">
-            <h3>Click the button to continue the video when you and your partner finish teaching each other</h3>
+            <h3>Click the button to continue the video when you and your partner finish teaching each other.</h3>
             <div id="btnCtn">
-                <button onclick="finishPeerTeach()" class="button">Submit</button>
+                <button onclick="finishPeerTeach()" class="button">Continue</button>
             </div>
         </div>
 
         <!-- // Group exploration -->
-        <div id="groupQ0">
+        <div id="GrQ0">
             <h3>Choose the one option that you think is the formula for lever principle.</h3>
             <form class="option">
-                <input id="GrQ0A" type="radio" name="S2Q2" value=true> <em>A. m1m2=d1d2</em> <br>
-                <input id="GrQ0B" type="radio" name="S2Q2" value=true> <em>B. m1d2=m2d1</em> <br>
-                <input id="GrQ0C" type="radio" name="S2Q2" value=true> <em>C. m1d1=m2d2</em> <br>
-                <input id="GrQ0D" type="radio" name="S2Q2" value=true> <em>D. m1/d1=m2/d2</em> <br>
+                <input id="GrQ0A" type="radio" name="GrA0" value=true> <em>A. m1m2=d1d2</em> <br>
+                <input id="GrQ0B" type="radio" name="GrA0" value=true> <em>B. m1d2=m2d1</em> <br>
+                <input id="GrQ0C" type="radio" name="GrA0" value=true> <em>C. m1d1=m2d2</em> <br>
+                <input id="GrQ0D" type="radio" name="GrA0" value=true> <em>D. m1/d1=m2/d2</em> <br>
             </form>
 
-            <!-- // NEED TO CHANGE PIC -->
-            <div id="pic2" class="picture">
-                <img src="images/S2Q2.jpeg" alt="picture2"/>
+            <div id="GrQ0pic" class="picture">
+                <img src="images/GrQ0.jpeg" alt="picture2"/>
             </div>
 
-            <div id="btnGrpQ0">
-                <button onclick="handleS2Q2()" class="button">Submit</button>
+            <div id="btnGrQ0">
+                <button onclick="handleGrQ0()" class="button">Submit</button>
             </div>
-            <div id="S2A2" class="answer"></div>
+            <div id="GrQ0Fdbck" class="answer"></div>
         </div>
 
         <!-- // Group quiz 1 -->
-        <div id="groupQ1">
+        <div id="GrQ1">
             <h3>The watermelon is three times heavier than the apple. If we put the apple at the far end on the right side, where should we put the watermelon in order to keep the beam balanced?</h3>
             <form class="option">
-                <input id="GrQ1A" type="radio" name="S2Q2" value=true> <em>A. point A</em> <br>
-                <input id="GrQ1B" type="radio" name="S2Q2" value=true> <em>B. point B</em> <br>
-                <input id="GrQ1C" type="radio" name="S2Q2" value=true> <em>C. point C</em> <br>
+                <input id="GrQ1A" type="radio" name="GrA1" value=true> <em>A. point A</em> <br>
+                <input id="GrQ1B" type="radio" name="GrA1" value=true> <em>B. point B</em> <br>
+                <input id="GrQ1C" type="radio" name="GrA1" value=true> <em>C. point C</em> <br>
             </form>
 
-            <!-- // NEED TO CHANGE PIC -->
-            <div id="pic2" class="picture">
-                <img src="images/S2Q2.jpeg" alt="picture2"/>
+            <div id="GrQ1pic" class="picture">
+                <img src="images/GrQ1.jpeg" alt="picture2"/>
             </div>
 
-            <div id="btnGrpQ1">
-                <button onclick="handleS2Q2()" class="button">Submit</button>
+            <div id="btnGrQ1">
+                <button onclick="handleGrQ1()" class="button">Submit</button>
             </div>
-            <div id="S2A2" class="answer"></div>
+            <div id="GrQ1Fdbck" class="answer"></div>
         </div>
 
         <!-- // Group quiz 2 -->
-        <div id="groupQ2">
+        <div id="GrQ2">
             <h3>We want to put some fruits on the lever and the watermelon is still three times as heavy as the apple. Now the watermelon is placed at the middle of the left beam. How many apples we have to put at point A to make the lever stay balanced?</h3>
             <form class="option">
-                <input id="GrQ2A" type="radio" name="S2Q2" value=true> <em>A. 6 apples</em> <br>
-                <input id="GrQ2B" type="radio" name="S2Q2" value=true> <em>B. 9 apples</em> <br>
-                <input id="GrQ2C" type="radio" name="S2Q2" value=true> <em>C. 12 apples</em> <br>
+                <input id="GrQ2A" type="radio" name="GrA2" value=true> <em>A. 6 apples</em> <br>
+                <input id="GrQ2B" type="radio" name="GrA2" value=true> <em>B. 9 apples</em> <br>
+                <input id="GrQ2C" type="radio" name="GrA2" value=true> <em>C. 12 apples</em> <br>
             </form>
 
-            <!-- // NEED TO CHANGE PIC -->
-            <div id="pic2" class="picture">
-                <img src="images/S2Q2.jpeg" alt="picture2"/>
+            <div id="GrQ2pic" class="picture">
+                <img src="images/GrQ2.jpeg" alt="picture2"/>
             </div>
 
-            <div id="btnGrpQ2">
-                <button onclick="handleS2Q2()" class="button">Submit</button>
+            <div id="btnGrQ2">
+                <button onclick="handleGrQ2()" class="button">Submit</button>
             </div>
-            <div id="S2A2" class="answer"></div>
+            <div id="GrQ2Fdbck" class="answer"></div>
         </div>
 
 
-<!--         // Original
-        <div id="invent3">
-            <h3>If we represent mass with the letter M and distance with the letter d, can you come up with a equation to illustrate the law? </h3>
-            <form class="option">
-                <input id="T3" type="text" name="quiz3" placeholder="Put your equation here"/>
-            </form>
-
-            <div id="pic3" class="picture">
-                <img src="images/pic3.jpeg" alt="picture3"/>
-            </div>
-
-            <div id="hint">
-                <a>
-            </div>
-
-            <div id="btnq3">
-                <button onclick="continueVideo(3)" class="button">Check your answer</button>
-            </div>
-
-        </div> -->
     </section>
 </body>
 </html>

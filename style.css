@@ -42,76 +42,86 @@ section {
     display: block;
     position: absolute;
     background: #ffffff;
-    width: 1000px;
+    width: 920px;
     height: 520px;
-    margin-top: 10px;
+    margin-top: 30px;
     padding: 80px 80px 120px 80px;
 }
 
 #finishPeerTeach,
 #S1Q1, #S1Q2, #S2Q1, #S2Q2, 
-#groupQ0, #groupQ1, #groupQ2 {
+#GrQ0, #GrQ1, #GrQ2 {
     display: none;
     position: absolute;
-    background: #f4f4f4;
-    width: 1000px;
+    background: rgba(244,244,244,0.9);
+    width: 920px;
     height: 520px;
-    margin-top: 10px;
+    margin-top: 30px;
     padding: 80px 80px 120px 80px;
 }
 
-#makePairs h3, 
+/*#makePairs h3, 
 #finishPeerTeach h3,
 #S1Q1 h3, 
 #S1Q2 h3, 
 #S2Q1 h3, 
 #S2Q2 h3,
-#groupQ0 h3, 
-#groupQ1 h3, 
-#groupQ2 h3 {
+#GrQ0 h3, 
+#GrQ1 h3, 
+#GrQ2 h3 {
+    padding:20px;
+    font-size:1.6rem;
+    line-height: 1.4em;
+    font-weight:400;
+}*/
+
+h3{
     padding:20px;
     font-size:1.6rem;
     line-height: 1.4em;
     font-weight:400;
 }
 
-#makePairs input, 
+/*#makePairs input, 
 #finishPeerTeach input, 
 #S1Q1 input,
 #S1Q2 input,
 #S2Q1 input,
 #S2Q2 input,
-#groupQ0 input, 
-#groupQ1 input, 
-#groupQ2 input {
+#GrQ0 input, 
+#GrQ1 input, 
+#GrQ2 input {
+    font-size: 5rem;
+}*/
+
+input {
     font-size: 5rem;
 }
 
-#makePairs em, 
+/*#makePairs em, 
 #finishPeerTeach em, 
 #S1Q1 em,
 #S1Q2 em,
 #S2Q1 em,
 #S2Q2 em,
-#groupQ0 em, 
-#groupQ1 em, 
-#groupQ2 em{
+#GrQ0 em, 
+#GrQ1 em, 
+#GrQ2 em{
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 2em;
+}*/
+
+em{
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 2em;
 }
 
-/*#T3{
-    font-size: 2rem;
-    margin-top:20px;
-    margin-left:20px;
-    margin-bottom:40px;
-}*/
-
-#S1Q1A, #S1Q2A,
-#S2Q1A, #S2Q2A,
-#groupQ0A, #groupQ1A,
-#groupQ2A
+#S1Q1Fdbck, #S1Q2Fdbck,
+#S2Q1Fdbck, #S2Q2Fdbck,
+#GrQ0Fdbck, #GrQ1Fdbck,
+#GrQ2Fdbck
 {
     /*display:none;*/
     /*position:relative;*/
@@ -123,18 +133,25 @@ section {
     width: 400px;
 }
 
-#S1Q1A p, 
-#S1Q2A p,
-#S2Q1A p, 
-#S2Q2A p, 
-#groupQ0A p, 
-#groupQ1A p,
-#groupQ2A p{
+p{
     padding:20px;
     font-weight:300;
     font-size:1.1rem;
     line-height: 1.3em;
 }
+
+/*#S1Q1A p, 
+#S1Q2A p,
+#S2Q1A p, 
+#S2Q2A p, 
+#GrQ0A p, 
+#GrQ1A p,
+#GrQ2A p{
+    padding:20px;
+    font-weight:300;
+    font-size:1.1rem;
+    line-height: 1.3em;
+}*/
 
 .button{
     float:left;
