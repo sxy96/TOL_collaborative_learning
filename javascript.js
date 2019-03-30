@@ -234,6 +234,12 @@ function finishPeerTeach() {
     continueVideo("#finishPeerTeach");
 }
 
+                <input id="GrQ0A" type="radio" name="GrA0" value=true> <em>A. m1m2=d1d2</em> <br>
+                <input id="GrQ0B" type="radio" name="GrA0" value=true> <em>B. m1d2=m2d1</em> <br>
+                <input id="GrQ0C" type="radio" name="GrA0" value=true> <em>C. m1d1=m2d2</em> <br>
+                <input id="GrQ0D" type="radio" name="GrA0" value=true> <em>D. m1/d1=m2/d2</em> <br>
+
+
 // Handle group questions
 function handleGrQ0() {
     questionId = GrQ0;
@@ -244,9 +250,13 @@ function handleGrQ0() {
     var D = $("input[id=GrQ0D]:checked").val();
     var str = ""
     if (C) {
-        str = "<p>Correct, you got it!</p>";
-    } else if (A || B || D) {
-        str = "<p>That’s not right. Pay attention to the explanation and see why you got it wrong.</p>";
+        str = "<p>Good job! You seem to understand how lever works.</p>";
+    } else if (A) {
+        str = "<p>That’s not right. You seem to understand that to make the lever balanced, m1 should increase with m2, but didn’t get that d1 should also increase with d2.</p>";
+    } else if (B) {
+        str = "<p>That’s not right. You seem to understand that to make the lever balanced, d1 should increase with d2, but didn’t get that m1 should also increase with m2.</p>";
+    } else if (D) {
+        str = "<p>That’s not right. You didn’t seem to understand the relationship between m1 and m2 or d1 and d2 in lever principle.</p>";
     }
     $("#GrQ0Fdbck").html(str);
 }
@@ -259,9 +269,9 @@ function handleGrQ1() {
     var C = $("input[id=GrQ1C]:checked").val();
     var str = ""
     if (C) {
-        str = "<p>Good job!</p>";
+        str = "<p>Good job! You get it right.</p>";
     } else if (A || B || D) {
-        str = "<p>Oops! Seems like you didn’t fully understand the concept.</p>";
+        str = "<p>That’s not right. Pay attention to the explanation and see why you got it wrong.</p>";
     }
     $("#GrQ1Fdbck").html(str);
 }
@@ -274,9 +284,9 @@ function handleGrQ2() {
     var C = $("input[id=GrQ2C]:checked").val();
     var str = ""
     if (C) {
-        str = "<p>Good job!</p>";
+        str = "<p>Good job! You get it right.</p>";
     } else if (A || B || D) {
-        str = "<p>Oops! Seems like you didn’t fully understand the concept.</p>";
+        str = "<p>That’s not right. Pay attention to the explanation and see why you got it wrong.</p>";
     }
     $("#GrQ2Fdbck").html(str);
 }
