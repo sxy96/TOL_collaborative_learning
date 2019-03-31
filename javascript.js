@@ -58,21 +58,21 @@ var len_video;
 
 function decideIntervalTime(studentId){
     if (studentId == 1){
-        time_indvQ1 = 93.5;     //1:33
-        time_indvQ2 = 150.5;    //2:30
-        time_prTch = 178;       //2:58
-        time_grpQ0 = 206;       //3:26
-        time_grpQ1 = 272.5;     //4:32
-        time_grpQ2 = 311;       //5:11
-        len_video = 362;        //6:02                                            
+        time_indvQ1 = 93.5;     //1:33.5
+        time_indvQ2 = 122;    //2:02
+        time_prTch = 136;       //2:16
+        time_grpQ0 = 164.5;       //2:44.5
+        time_grpQ1 = 230;     //3:50
+        time_grpQ2 = 268.5;       //4:28.5
+        len_video = 321;        //5:21                                           
     } else if (studentId == 2){
         time_indvQ1 = 92;       //1:32
-        time_indvQ2 = 152;      //2:32
-        time_prTch = 180;       //3:00
-        time_grpQ0 = 210;       //3:30
-        time_grpQ1 = 275.5;     //4:35
-        time_grpQ2 = 314.5;     //5:14
-        len_video = 366;        //6:06
+        time_indvQ2 = 122.5;      //2:02.5
+        time_prTch = 138.5;       //2:18
+        time_grpQ0 = 177.5;       //2:47.5
+        time_grpQ1 = 232.5;     //3:52.5
+        time_grpQ2 = 271.5;     //4:31.5
+        len_video = 324;        //5:24
     }
 }
 var done1,done2,done3,done4,done5,done6=false;
