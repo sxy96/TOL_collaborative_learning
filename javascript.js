@@ -8,12 +8,12 @@ function makeStudentPairs() {
     var s2 = $("input[id=Q0S2]:checked").val();
     if (s1) {
         studentId = 1;
-        videoURL = "https://youtu.be/Rv87bbUwYJk";
-        videoId  = "Rv87bbUwYJk";
+        videoURL = "https://youtu.be/oe_gqxyFtZM";
+        videoId  = "oe_gqxyFtZM";
     } else if (s2){
         studentId = 2;
-        videoURL = "https://youtu.be/1aJNxWY9kzs";
-        videoId  = "1aJNxWY9kzs";
+        videoURL = "https://youtu.be/gfGjdeRn84k";
+        videoId  = "gfGjdeRn84k";
     }
     player.loadVideoById(videoId);
     decideIntervalTime(studentId);
@@ -47,14 +47,6 @@ function onYouTubeIframeAPIReady() {
 // 4. The API calls this function when the player's state changes.
 //    The function indicates that when playing a video (state=1),
 //    the player should play for six seconds and then stop.
-// var done1 = false;
-// var done2 = false;
-// var time_indvQ1;                                               //
-// var time_indvQ2;                                               //
-// var time_prTeach
-// var time_grpQ0;                                               //
-// var time_grpQ1;                                               //
-// var time_grpQ2;                                               //
 
 var time_indvQ1;
 var time_indvQ2;
@@ -83,31 +75,30 @@ function decideIntervalTime(studentId){
         len_video = 366;        //6:06
     }
 }
-
-
 var done1,done2,done3,done4,done5,done6=false;
+
 function onPlayerReady(event) {
     event.target.playVideo();
     setInterval(
         function() {
-            if (event.target.getCurrentTime() >= time_indvQ1 && !done1) {
+            if (event.target.getCurrentTime() >= time_indvQ1 && event.target.getCurrentTime() <= time_indvQ1 + 1 && !done1) {
                 stopVideo("#S" + studentId + "Q1");
                 done1 = true;
                 // stopVideo(studentId,1);
-            } else if (event.target.getCurrentTime() >= time_indvQ2 && !done2) {
+            } else if (event.target.getCurrentTime() >= time_indvQ2 && event.target.getCurrentTime() <= time_indvQ2 + 1 && !done2) {
                 // $("S" + studentId + "Q2").css("display", "block");
                 stopVideo("#S" + studentId + "Q2");
                 done2 = true;
-            } else if (event.target.getCurrentTime() >= time_prTch && !done3) {
+            } else if (event.target.getCurrentTime() >= time_prTch && event.target.getCurrentTime() <= time_prTch + 1 && !done3) {
                 stopVideo("#finishPeerTeach");
                 done3 = true;
-            } else if (event.target.getCurrentTime() >= time_grpQ0 && !done4) {
+            } else if (event.target.getCurrentTime() >= time_grpQ0 && event.target.getCurrentTime() <= time_grpQ0 + 1  && !done4) {
                 stopVideo("#GrQ0");
                 done4 = true;
-            } else if (event.target.getCurrentTime() >= time_grpQ1 && !done5) {
+            } else if (event.target.getCurrentTime() >= time_grpQ1 && event.target.getCurrentTime() <= time_grpQ1 + 1 && !done5) {
                 stopVideo("#GrQ1");
                 done5 = true;
-            } else if (event.target.getCurrentTime() >= time_grpQ2 && !done6) {
+            } else if (event.target.getCurrentTime() >= time_grpQ2 && event.target.getCurrentTime() <= time_grpQ2 + 1 && !done6) {
                 stopVideo("#GrQ2");
                 done6 = true;
             } 
@@ -187,14 +178,13 @@ function handleS1Q1() {
 function handleS1Q2() {
     questionId = S1Q2;
     $("#btnS1A2").html("<button onclick=\"continueVideo(questionId)\" class=\"button\">Continue</button>");
-    var A = $("input[id=S1Q2A]:checked").val();
-    var B = $("input[id=S1Q2B]:checked").val();
-    var C = $("input[id=S1Q2C]:checked").val();
+    var blank1 = $("#S1Q2blank1").val();
+    var blank2 = $("#S1Q2blank2").val();
     var str = ""
-    if (B) {
+    if (blank1 == "heavier" && blank2 == "balanced") {
         str = "<p>Correct, you got it!</p>";
-    } else if (A || C) {
-        str = "<p>That’s not right. Pay attention to the explanation and see why you got it wrong.</p>";
+    } else {
+        str = "<p>Corret answer: heavier, balanced</p><p>Remember the previous example, when Anna and Tom sits at the position where the distance from the fulcrum to their seats are the same, the seesaw will lean towards the side where objects are heavier. So when the distance is the same, the heavier the objects are on one side, the more tilted will the seesaw be to that side.</p>";
     }
     $("#S1Q2Fdbck").html(str);
 }
@@ -217,14 +207,13 @@ function handleS2Q1() {
 function handleS2Q2() {
     questionId = S2Q2;
     $("#btnS2A2").html("<button onclick=\"continueVideo(questionId)\" class=\"button\">Continue</button>");
-    var A = $("input[id=S2Q2A]:checked").val();
-    var B = $("input[id=S2Q2B]:checked").val();
-    var C = $("input[id=S2Q2C]:checked").val();
+    var blank1 = $("#S2Q2blank1").val();
+    var blank2 = $("#S2Q2blank2").val();
     var str = ""
-    if (A) {
+    if (blank1 == "farther" && blank2 == "balanced") {
         str = "<p>Correct, you got it!</p>";
-    } else if (B || C) {
-        str = "<p>That’s not right. Pay attention to the explanation and see why you got it wrong.</p>";
+    } else {
+        str = "<p>Corret answer: farther, balanced</p><p>Remember the previous example, when Anna and Tom are of the same weight, the seesaw will lean towards the side where objects are farther away from the fulcrum. So when the mass is the same, the farther the objects are from the fulcrum, the more tilted will the seesaw be to that objects’ side.</p>";
     }
     $("#S2Q2Fdbck").html(str);
 }
@@ -263,9 +252,9 @@ function handleGrQ1() {
     var C = $("input[id=GrQ1C]:checked").val();
     var str = ""
     if (C) {
-        str = "<p>Good job! You get it right.</p>";
-    } else if (A || B || D) {
-        str = "<p>That’s not right. Pay attention to the explanation and see why you got it wrong.</p>";
+        str = "<p>Good job! You’ve understood how to apply the lever principle.</p>";
+    } else if (A || B) {
+        str = "<p>That’s not right. The lever principle tells us: the lever will be balanced when m1d1 = m2d2. In this case, m2 (the mass of the apple) is 1/3 of m1 (the mass of the watermelon). To make the equation tenable, d1 should be 1/3 of d2. Given than the watermelon is as heavy as 3 apples, the watermelon should be placed at point  C. Option C is the right answer.</p>";
     }
     $("#GrQ1Fdbck").html(str);
 }
@@ -277,10 +266,10 @@ function handleGrQ2() {
     var B = $("input[id=GrQ2B]:checked").val();
     var C = $("input[id=GrQ2C]:checked").val();
     var str = ""
-    if (C) {
-        str = "<p>Good job! You get it right.</p>";
-    } else if (A || B || D) {
-        str = "<p>That’s not right. Pay attention to the explanation and see why you got it wrong.</p>";
+    if (B) {
+        str = "<p>Good job! You’ve understood how to apply the lever principle.</p>";
+    } else if (A || C) {
+        str = "<p>That’s not right. The lever principle tells us: the lever will be balanced when m1d1 = m2d2. In this case, d1 (the distance of the watermelon to the fulcrum) is 3 times of d1 (the distance of apples to the fulcrum). To make the equation tenable, m2 should be 3 times as m2. Given than the watermelon is as heavy as 3 apples, we should put 9 apples at point A. Option B is the right answer.</p>";
     }
     $("#GrQ2Fdbck").html(str);
 }

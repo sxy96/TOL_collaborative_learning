@@ -56,7 +56,7 @@
         </div>
 
         <!-- // Student 1 - Individual Quiz  -->
-        <div id="S1Q2">
+<!--         <div id="S1Q2">
             <h3>The watermelon is three times heavier than the apple. If we put the apple at the far end on the right side, where should we put the watermelon in order to keep the beam balanced? Choose one answer:</h3>
             <form class="option">
                 <input id="S1Q2A" type="radio" name="S1Q2" value=true> <em>A. Point A</em> <br>
@@ -72,7 +72,24 @@
                 <button onclick="handleS1Q2()" class="button">Submit</button>
             </div>
             <div id="S1Q2Fdbck" class="answer"></div>
+        </div> -->
+
+        <div id="S1Q2">
+            <h3>Fill in the blank with the correct word that you choose. </h3>
+            <h4>
+                The balance of lever is related to mass of the object. When the objects are placed at the same distance from the fulcrum, the lever is going to lean to the
+                <input id="S1Q2blank1" type="text" name="S1Q2a" placeholder=""/>
+                (heavier, lighter) side, and when the mass of the objects are also the same, it will be
+                <input id="S1Q2blank2" type="text" name="S1Q2b" placeholder=""/>
+                (balanced/tilted).
+            </h4>
+
+            <div id="btnS1A2">
+                <button onclick="handleS1Q2()" class="button">Submit</button>
+            </div>
+            <div id="S1Q2Fdbck" class="answer"></div>
         </div>
+
 
         <!-- // Student 2 - Exploration  -->
         <div id="S2Q1">
@@ -94,7 +111,7 @@
         </div>
 
         <!-- // Student 2 - Individual Quiz  -->
-        <div id="S2Q2">
+<!--         <div id="S2Q2">
             <h3>The watermelon is three times heavier than the apple. If we put the apple at the far end on the right side, where should we put the watermelon in order to keep the beam balanced? Choose one answer:</h3>
             <form class="option">
                 <input id="S2Q2A" type="radio" name="S2Q2" value=true> <em>A. Point A</em> <br>
@@ -110,8 +127,23 @@
                 <button onclick="handleS2Q2()" class="button">Submit</button>
             </div>
             <div id="S2Q2Fdbck" class="answer"></div>
-        </div>
+        </div> -->
 
+        <div id="S2Q2">
+            <h3>Fill in the blank with the correct word that you choose. </h3>
+            <h4>
+                The balance of lever is related to distance between the object and the fulcrum. When the mass of the objects on the two sides are the same, the lever is going lean towards the side where the object is
+                <input id="S2Q2blank1" type="text" name="S2Q2a" placeholder=""/>
+                (farther/closer) from the fulcrum. It will be
+                <input id="S2Q2blank2" type="text" name="S2Q2b" placeholder=""/>
+                (balanced/tilted) if the two objects are also of the same distance to the fulcrum.
+            </h4>
+
+            <div id="btnS2A2">
+                <button onclick="handleS2Q2()" class="button">Submit</button>
+            </div>
+            <div id="S2Q2Fdbck" class="answer"></div>
+        </div>
 
         <!-- // Continue to play the video when finish peer instruction -->
         <div id="finishPeerTeach">
@@ -123,7 +155,7 @@
 
         <!-- // Group exploration -->
         <div id="GrQ0">
-            <h3>Choose the one option that you think is the formula for lever principle.</h3>
+            <h3>Now, using what you have learned, make a hypothesis on how you can make lever balanced.</h3>
             <form class="option">
                 <input id="GrQ0A" type="radio" name="GrA0" value=true> <em>A. m1m2=d1d2</em> <br>
                 <input id="GrQ0B" type="radio" name="GrA0" value=true> <em>B. m1d2=m2d1</em> <br>
@@ -143,7 +175,7 @@
 
         <!-- // Group quiz 1 -->
         <div id="GrQ1">
-            <h3>The watermelon is three times heavier than the apple. If we put the apple at the far end on the right side, where should we put the watermelon in order to keep the beam balanced?</h3>
+            <h3>The watermelon is three times as heavy as the apple. If we put the apple at the far end on the right side, where should we put the watermelon in order to keep the beam balanced?</h3>
             <form class="option">
                 <input id="GrQ1A" type="radio" name="GrA1" value=true> <em>A. point A</em> <br>
                 <input id="GrQ1B" type="radio" name="GrA1" value=true> <em>B. point B</em> <br>
@@ -179,6 +211,32 @@
             <div id="GrQ2Fdbck" class="answer"></div>
         </div>
 
+        <div id="GradingMethod">
+            <h5>
+                To pass this course, you will have to both teach your partners what you’ve learned from the video and learn from your partner what they’ve learned. You will take 4 quizzes and you will pass the course when you and your partner get a score over 60 points.
+                <table>
+                <tr>
+                    <th>#Quiz</th>
+                    <th>Points</th>
+                </tr>
+                <tr>
+                    <td>Formative Quiz 1: Filling Blank</td>
+                    <td>10pts (5pts each blank)</td>
+                </tr>
+                <tr>
+                    <td>Formative Quiz 2: Choose the Formula</td>
+                    <td>30pts</td>
+                </tr>
+                <tr>
+                    <td>Final Quiz 1</td>
+                    <td>30pts</td>
+                </tr>
+                <tr>
+                    <td>Final Quiz 2</td>
+                    <td>30pts</td>
+                </tr>
+                </table>
+            </h5>
 
     </section>
 </body>
