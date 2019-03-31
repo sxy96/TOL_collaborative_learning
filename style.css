@@ -102,8 +102,7 @@ h4{
 
 
 #S1Q1Fdbck, #S2Q1Fdbck,
-#GrQ0Fdbck, #GrQ1Fdbck,
-#GrQ2Fdbck
+#GrQ0Fdbck,
 {
 
     margin-top: 130px;
@@ -111,6 +110,16 @@ h4{
     border-radius: 10px;
     background-color: gainsboro;
     width: 400px;
+}
+
+#GrQ1Fdbck, #GrQ2Fdbck
+{
+
+    margin-top: 130px;
+    margin-left:10px;
+    border-radius: 10px;
+    background-color: gainsboro;
+    width: 500px;
 }
 
 #S1Q2Fdbck, #S2Q2Fdbck
