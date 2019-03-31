@@ -69,7 +69,7 @@ function decideIntervalTime(studentId){
         time_indvQ1 = 92;       //1:32
         time_indvQ2 = 122.5;      //2:02.5
         time_prTch = 138.5;       //2:18
-        time_grpQ0 = 177.5;       //2:47.5
+        time_grpQ0 = 167.5;       //2:47.5
         time_grpQ1 = 232.5;     //3:52.5
         time_grpQ2 = 271.5;     //4:31.5
         len_video = 324;        //5:24

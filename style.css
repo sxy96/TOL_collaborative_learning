@@ -21,6 +21,7 @@ h2{
 body{
     width: 80%;
     margin-left:100px;
+    height: 920px;
 }
 
 section {
@@ -30,8 +31,8 @@ section {
 #player{
     position: absolute;
 /*    width: 100%;*/
-    z-index: -1;
-    margin-top: 200px;
+/*    z-index: -1;*/
+    margin-top: 10px;
 }
 
 #title{
@@ -44,7 +45,7 @@ section {
     background: #ffffff;
     width: 920px;
     height: 520px;
-    margin-top: 200px;
+    margin-top: 10px;
     padding: 80px 80px 120px 80px;
 }
 
@@ -54,15 +55,15 @@ section {
     display: none;
     position: absolute;
     background: rgba(244,244,244,0.9);
-    width: 920px;
-    height: 520px;
-    margin-top: 200px;
-    padding: 80px 80px 120px 80px;
+    width: 960px;
+    height: 600px;
+    margin-top: 10px;
+    padding: 60px 60px 60px 60px;
 }
 
 
 h3{
-    padding:20px;
+    padding:15px;
     font-size:1.6rem;
     line-height: 1.4em;
     font-weight:400;
@@ -94,7 +95,7 @@ em{
 
 h4{
     display: inline-block;
-    padding:20px;
+    padding:15px;
     font-size:1.2rem;
     line-height: 1.4em;
     font-weight:400;
@@ -102,29 +103,19 @@ h4{
 
 
 #S1Q1Fdbck, #S2Q1Fdbck,
-#GrQ0Fdbck,
+#GrQ0Fdbck, #GrQ1Fdbck, #GrQ2Fdbck
 {
-
-    margin-top: 130px;
-    margin-left:10px;
-    border-radius: 10px;
-    background-color: gainsboro;
-    width: 400px;
-}
-
-#GrQ1Fdbck, #GrQ2Fdbck
-{
-
-    margin-top: 130px;
+    margin-top: 120px;
     margin-left:10px;
     border-radius: 10px;
     background-color: gainsboro;
     width: 500px;
 }
 
+
 #S1Q2Fdbck, #S2Q2Fdbck
 {
-    margin-top: 130px;
+    margin-top: 100px;
     margin-left:10px;
     border-radius: 10px;
     background-color: gainsboro;
@@ -139,7 +130,7 @@ p{
 
 .button{
     float:left;
-    margin-top: 60px;
+    margin-top: 30px;
     margin-left:10px;
     padding:15px 30px;
     border-radius: 50px;
@@ -159,33 +150,32 @@ p{
 
 .picture img {
     position:absolute;
-    width: 480px;
-    height: 270px;
+    width: 400px;
+    height: 225px;
     padding: 10px;
-    margin-left:500px;
-    margin-top:0px;
+    margin-left:540px;
+    margin-top:90px;
 }
 
 #GradingMethod{
     position: relative;
+    margin-top:760px;
     height: 100;
-    /*float: bottom;*/
+    z-index: -2;
 }
 
-/*
-#GradingMethod{
-    width: 100%;
-    height: 100px;
-    position: absolute;
-    bottom: 0px;
-}*/
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   height: 100px;
+}
 
 h5{
-    padding:20px;
     font-size:1rem;
     line-height: 1.4em;
     font-weight:400;
-    z-index: -2;
 }
 
 table{
