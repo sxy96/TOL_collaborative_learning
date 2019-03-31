@@ -171,6 +171,7 @@ p{
 #GradingMethod{
     position: relative;
     margin-top: 760px;
+    z-index: -20;
 }
 
 h5{
