@@ -25,7 +25,23 @@
 
         <!-- divide roles between a pair of students -->
         <div id="makePairs">
-            <h3>Hi students, this learning unit is a collaborative learning. You need to find a partner to start. One of you should be Student A and the other is Student B. Then, choose your number below:</h3>
+            <h5 style="font-weight: 500;">Hi students, welcome to this collaborative learning module. In this module, you will: <br></h5>
+            <h5>
+            <ol>
+                <li>Watch a short video. You will learn how balance of the seesaw is influenced by mass/distance. Don't forget to take notes so that you'll be more prepared for teaching your partner.<br>
+                <li>Finish an expert quiz. This will help you identify if you have mastered the knowledge before you teach it to your partner.<br>
+                <li>Teach each other what you have learned. You and your partner will exchange the knowledge you've just learned, so both of you would share the knowledge.<br>
+                <li>Finish three quizzes. Notice that these quizzes will test you on knowledge you learned both from the video and from your partner, so be sure to listen carefully when your peer is teaching you.<br></h5>
+            </ol>
+            <h5 style="font-weight: 500;"> <br>How you'll be graded</h5>
+            <h5>This is a collaborative learning module, so your score will depend on both your performance and your partner's performance in the assessment. You will take 4 quizzes in total, one before collaboration, and 3 after it. Your score will consist of:<br>
+            <ul>
+              <li>Expert quiz - 10%</li>
+              <li>Your performance in 3 quizzes - 60%</li>
+              <li>Your partner's performance in 3 quizzes - 30%</li>
+            </ul>
+            </h5>
+            <h5 style="font-weight: 500;"> <br>Now, you need to find a partner to start. One of you should be Student A and the other is Student B. Then, choose your number below:</h5>
             <form class="option">
                 <input id="Q0S1" type="radio" name="peerRole" value=true> <em>Student A</em> <br>
                 <input id="Q0S2" type="radio" name="peerRole" value=true> <em>Student B</em> <br><br>
@@ -34,17 +50,6 @@
             <div id="btnq0">
                 <button onclick="makeStudentPairs()" class="button">Start</button>
             </div>
-
-            <div id="Grading" class="answer">
-                <h5 style="font-weight: 500;">How you'll be graded</h5>
-                <h5>This is a collaborative learning module. You will teach your partner what you’ve learned and learn from what they’ve learned. You will take 4 quizzes in total, one before collaboration, and 3 after it. Your score will consist of:</h5>
-                <h5 class="indented"> Fill-in-the-blank quiz - 10%</h5>
-                <h5 class="indented"> Your performance in 3 quizzes - 60%</h5>
-                <h5 class="indented"> Your partner's performance in 3 quizzes - 30%</h5>
-            </div>
-        
-
-
         </div>
 
         <!-- // Student 1 - Exploration  -->
@@ -123,6 +128,12 @@
         <!-- // Continue to play the video when finish peer instruction -->
         <div id="finishPeerTeach">
             <h3>Click the button to continue the video when you and your partner finish teaching each other.</h3>
+            <h4> <br>You should cover:<br>
+            <ul>
+              <li>The condition where the seesaw is balanced.</li>
+              <li>The condition where the seesaw is tilted towards one side.</li>
+            </ul>
+            </h4>  
             <div id="btnCtn">
                 <button onclick="finishPeerTeach()" class="button">Continue</button>
             </div>
